@@ -25,7 +25,7 @@ Meteor.loginVisitor = function (email, callback) {
 //no non-logged in users
 /* you might need to limit this to avoid flooding the user db */
 Meteor.startup(function(){
-    Deps.autorun(function () {
+    Tracker.autorun(function () {
         if (!Meteor.userId()) {
             if (AccountsGuest.forced === true) {
                 Meteor.loginVisitor();
